@@ -37,6 +37,9 @@ if source.is_file():
             if relative.startswith(('.git/','.venv/','backups/','diagnostics/','build/','dist/')) or relative.lower().endswith(('.exe','.log','.npy')):
                 raise RuntimeError(f'Local/generated file in source archive: {relative}')
 manifest={}
+manifest_bytes=(folder/'SHA256SUMS.txt').read_bytes()
+if b'\r' in manifest_bytes or not manifest_bytes.endswith(b'\n'):
+    raise RuntimeError('Checksum manifest must use LF line endings for cross-platform verification')
 for line in (folder/'SHA256SUMS.txt').read_text(encoding='utf-8').splitlines():
     checksum,name=line.split('  ',1)
     if Path(name).name!=name:raise RuntimeError('Invalid checksum filename')

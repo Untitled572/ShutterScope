@@ -3,7 +3,7 @@ name: Windows build and release
 on:
   push:
     branches: [main]
-    tags: ['[0-9]*']
+    tags: ['v[0-9]*']
   pull_request:
   workflow_dispatch:
 
@@ -39,8 +39,8 @@ jobs:
         shell: pwsh
         run: |
           $version = (python -c "from version import __version__; print(__version__)").Trim()
-          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne $version) {
-            throw 'The tag must exactly match version.py'
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne ('v' + $version)) {
+            throw 'The tag must be v followed by the version in version.py'
           }
       - name: Run tests and build portable application
         shell: pwsh

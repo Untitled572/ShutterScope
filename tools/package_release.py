@@ -66,7 +66,7 @@ def checksums(folder):
     rows = []
     for path in sorted(folder.glob('*.zip')):
         rows.append(f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}')
-    (folder / 'SHA256SUMS.txt').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+    (folder / 'SHA256SUMS.txt').write_text('\n'.join(rows) + '\n', encoding='utf-8', newline='\n')
 
 
 def portable(exe):

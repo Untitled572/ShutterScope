@@ -1,7 +1,7 @@
 # ShutterScope
 
 [![Windows build](https://github.com/Untitled572/ShutterScope/actions/workflows/windows.yml/badge.svg)](https://github.com/Untitled572/ShutterScope/actions/workflows/windows.yml)
-[下载 0.1](https://github.com/Untitled572/ShutterScope/releases/tag/0.1) · [使用说明](docs/usage.md) · [测试记录](docs/validation.md) · [GPLv3](LICENSE)
+[下载 0.1](https://github.com/Untitled572/ShutterScope/releases/tag/v0.1) · [使用说明](docs/usage.md) · [测试记录](docs/validation.md) · [GPLv3](LICENSE)
 
 ShutterScope 是一个 Windows 光电快门测速工具。它读取麦克风输入口上光电二极管产生的信号，识别快门开启和关闭时的光变，估计二极管所在位置的曝光时长。
 
@@ -62,7 +62,7 @@ python -m venv .venv
 
 构建输出位于 `dist/bin/`，便携包和校验值位于 `dist/release/`。打包脚本收集第三方许可，冻结后的程序也有独立自检。
 
-GitHub Actions 在 Windows 上运行回归测试、GUI 检查、打包和 EXE 自检。推送与 `version.py` 一致的版本标签（例如 `0.1`）后，工作流会创建 Release，并上传 Windows 包、对应源码和校验值。
+GitHub Actions 在 Windows 上运行回归测试、GUI 检查、打包和 EXE 自检。推送带 `v` 前缀、与 `version.py` 对应的版本标签（例如 `v0.1`）后，工作流会创建 Release，并上传 Windows 包、对应源码和校验值。
 
 ## 参与开发
 
