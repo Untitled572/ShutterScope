@@ -1,0 +1,20 @@
+# Local Python and editor state
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+.idea/
+# Generated programs, packages and private diagnostics
+build/
+dist/
+backups/
+diagnostics/
+*.exe
+*.zip
+*.spec
+*.log
+*.wav
+!tests/fixtures/*.wav
+.env
+.env.*
